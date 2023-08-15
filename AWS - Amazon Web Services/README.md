@@ -32,7 +32,7 @@ module "image_builder_distribution"{
 
   name               = "Amazon-Linux-Distribution"
   description        = "Distribution settings for Amazon Linux AMI"
-  ami_name           = "NonAD-V{{imagebuilder:buildVersion}}_AmazonLinux2_{{imagebuilder:buildDate}}"
+  ami_name           = "V{{imagebuilder:buildVersion}}_AmazonLinux2_{{imagebuilder:buildDate}}"
   ami_tags = {
     "AMI unique key" = "NPRD_AmazonLinux2",
     "Creator"        = "",
@@ -59,7 +59,7 @@ module "image_builder_infrastructure" {
   security_group_ids            = var.security_group_ids
   subnet_id                     = var.subnet_id
   terminate_instance_on_failure = true
-  s3_bucket_name                = "nprd-mit-image-builder"
+  s3_bucket_name                = "image-builder"
   s3_key_prefix                 = "/"
   tags                          = var.tags
 
